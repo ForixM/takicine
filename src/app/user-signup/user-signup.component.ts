@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {UsersService} from "../services/users.service";
 import {User} from "../models/user";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-user-signup',
@@ -23,6 +24,7 @@ export class UserSignupComponent {
       private router: Router,
       private route: ActivatedRoute,
       private toastr: ToastrService,
+      private authService: AuthService,
   ) {}
 
   user: User = {
@@ -87,6 +89,7 @@ export class UserSignupComponent {
     }
     this.userService.addUser(this.user).subscribe(() => {
       this.toastr.success('Compte créé avec succès', 'Succès');
+      this.authService.login(this.user);
       this.router.navigate(['/']);
     });
   }
