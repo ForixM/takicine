@@ -1,5 +1,5 @@
-Membres du groupe:
-	- mehdi.el-alaoui-el-aoufoussi
-	- elena.villepreux
-	- jules.decherat
-	- pierre.wagniart
+Membres du groupe:<br />
+- mehdi.el-alaoui-el-aoufoussi<br />
+- elena.villepreux<br />
+- jules.decherat<br />
+- pierre.wagniart
