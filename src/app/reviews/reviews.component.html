@@ -1,0 +1,36 @@
+<div class="header">
+    <h3>Les avis</h3>
+    <select (change)="onFilterChange($event)" >
+        @for (year of years; track year){
+            <option>{{year}}</option>
+        }
+    </select>
+    <button routerLink="/admin">Retour</button>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Note</th>
+        <th scope="col">Texte</th>
+        <th scope="col">Email utilisateur</th>
+        <th scope="col">Titre film</th>
+        <th scope="col">Date</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    @for (review of reviews$ | async; track review.id) {
+        <tr>
+            <td>{{ review.id }}</td>
+            <td>{{ review.rate }}</td>
+            <td>{{ review.text }}</td>
+            <td>{{ review.user?.email }}</td>
+            <td>{{ review.movie?.title }}</td>
+            <td>{{ review.reviewDate | date:'dd/MM/yyyy' }}</td>
+            <td>
+                <div class="btn-container">
+                    <button type="button" class="btn btn-danger deleteButton" (click)="deleteReview(review.id)"><i class="bi bi-trash"></i></button>
+                </div>
+            </td>
+        </tr>}
+</table>

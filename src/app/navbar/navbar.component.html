@@ -1,0 +1,29 @@
+<nav class="navbar navbar-light navbar-expand bg-light ps-5">
+    <div class="nav-links">
+        <img src="https://i.gifer.com/4xjK.gif" alt="Bunny">
+        <a class="navbar-brand">{{ title | titlecase }}</a>
+    </div>
+    <div class="nav-links">
+        <a class="nav-item nav-link" routerLink="/">Accueil</a>
+        <a class="nav-item nav-link ms-3" routerLink="/admin">Panel Administrateur</a>
+        @if (user$ | async) {
+            <a class="nav-item nav-link ms-3" routerLink="/profile">Profil</a>
+        } @else {
+            <a class="nav-item nav-link ms-3" routerLink="/signup">Inscription</a>
+            <a class="nav-item nav-link ms-3" routerLink="/login">Connexion</a>
+        }
+    </div>
+
+    <div class="nav-right">
+        <form (ngSubmit)="onSearch()">
+            <input
+                    type="text"
+                    placeholder="Search..."
+                    [(ngModel)]="searchQuery"
+                    name="search"
+            />
+            <button type="submit">Go</button>
+        </form>
+    </div>
+
+</nav>

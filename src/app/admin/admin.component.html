@@ -1,0 +1,40 @@
+<div class="stats">
+    <div class="stats-section">
+        <div class="stat-component">
+            <h2>Nombre de films</h2>
+            <p>{{moviesAmount}}</p>
+        </div>
+        <div class="stat-component">
+            <h2>Nombre d'utilisateurs</h2>
+            <p>{{usersAmount}}</p>
+        </div>
+        <div class="buttons">
+            <button class="btn btn-warning" routerLink="/movies">Les films</button>
+            <button class="btn btn-warning" routerLink="/users">Les utilisateurs</button>
+        </div>
+    </div>
+    <div class="stats-section">
+        <div class="stat-component">
+            <h2>Nombre d'avis</h2>
+            <p>{{reviewsAmount}}</p>
+        </div>
+        <div class="stat-component">
+            <h2>Nombre moyen d'avis par film</h2>
+            <p>{{reviewsAverage}}</p>
+        </div>
+        <div class="buttons">
+            <button class="btn btn-warning" routerLink="/reviews">Les avis</button>
+        </div>
+    </div>
+</div>
+<div class="graphs-section">
+    <h2>Graphiques</h2>
+    <div class="graphs">
+        <div style="width: 800px;">
+            <canvas #chartCanvas></canvas>
+        </div>
+        <div style="width: 800px;">
+            <canvas #chartReviewsAmount></canvas>
+        </div>
+    </div>
+</div>

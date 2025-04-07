@@ -1,0 +1,32 @@
+<div class="header">
+    <h3>Les utilisateurs</h3>
+    <button [routerLink]="['/add-user']">Nouvel utilisateur</button>
+    <button routerLink="/admin">Retour</button>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Email</th>
+        <th scope="col">Age</th>
+        <th scope="col">Points fidélité</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    @for (user of users$ | async; track user.id) {
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.lastName }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.age}}</td>
+            <td>{{ user.points }}</td>
+            <td>
+                <div class="btn-container">
+                    <button type="button" class="btn btn-danger deleteButton" (click)="deleteUser(user.id)"><i class="bi bi-trash"></i></button>
+                </div>
+            </td>
+        </tr>}
+</table>

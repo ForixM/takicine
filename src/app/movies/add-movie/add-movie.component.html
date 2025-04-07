@@ -1,0 +1,68 @@
+<div class="form-container" xmlns:date="http://www.w3.org/1999/xhtml">
+    <form #movieForm="ngForm" class="d-flex flex-column w-50">
+      <h2>
+      @if (movie.id) {
+        Modifier le film
+      } @else {
+        Nouveau film
+      }
+      </h2>
+      <label for="title">Titre</label>
+      <input type="text"
+             id="title"
+             name="title"
+             [(ngModel)]="movie.title"
+      />
+        @if (errorMessages.title) {
+            <div class="error-message">
+                {{ errorMessages.title }}
+            </div>
+        }
+      <label for="releaseDate">Date de sortie</label>
+      <input type="date"
+             id="releaseDate"
+             name="releaseDate"
+             [ngModel]="movie.releaseDate | date:'yyyy-MM-dd'"
+             (ngModelChange)="onReleaseDateChange($event)"
+      >
+        @if (errorMessages.releaseDate) {
+            <div class="error-message">
+                {{ errorMessages.releaseDate }}
+            </div>
+        }
+      <label for="director">Réalisateur</label>
+      <input type="text"
+             id="director"
+             name="director"
+             [(ngModel)]="movie.director"
+      />
+        @if (errorMessages.director) {
+            <div class="error-message">
+                {{ errorMessages.director }}
+            </div>
+        }
+      <label for="synopsis">Synopsis</label>
+        <textarea id="synopsis"
+                  name="synopsis"
+                  [(ngModel)]="movie.synopsis"
+                  #synopsis="ngModel"></textarea>
+        @if (errorMessages.synopsis) {
+            <div class="error-message">
+                {{ errorMessages.synopsis }}
+            </div>
+        }
+      <button class="btn btn-warning"
+              (click)="addMovie(movie.id)">
+        @if (movie.id) {
+            Modifier
+        } @else {
+            Ajouter
+        }
+      </button>
+        @if (errorMessages.general) {
+            <div class="error-message">
+                {{ errorMessages.general }}
+            </div>
+        }
+    </form>
+</div>

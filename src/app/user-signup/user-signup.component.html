@@ -1,0 +1,70 @@
+<div class="form-container" xmlns:date="http://www.w3.org/1999/xhtml">
+    <form #userForm="ngForm" class="d-flex flex-column w-50">
+        <h2>
+            Passionné(e) de cinéma ? Rejoignez-nous !
+        </h2>
+        <h5>
+            Et rejoins un vraie communauté !
+        </h5>
+        <label for="firstName">Prénom</label>
+        <input type="text"
+               id="firstName"
+               name="firstName"
+               [(ngModel)]="user.firstName"
+        />
+        @if (errorMessages.firstName) {
+            <div class="error-message">
+                {{ errorMessages.firstName }}
+            </div>
+        }
+        <label for="lastName">Nom de famille</label>
+        <input type="text"
+               id="lastName"
+               name="lastName"
+               [(ngModel)]="user.lastName"
+        >
+        @if (errorMessages.lastName) {
+            <div class="error-message">
+                {{ errorMessages.lastName }}
+            </div>
+        }
+        <label for="age">Age</label>
+        <input type="number"
+               id="age"
+               name="age"
+               [(ngModel)]="user.age"
+        />
+        @if (errorMessages.age) {
+            <div class="error-message">
+                {{ errorMessages.age }}
+            </div>
+        }
+        <label for="email">Email</label>
+        <input  type="text"
+                id="email"
+                name="email"
+                [(ngModel)]="user.email"
+        />
+        @if (errorMessages.email) {
+            <div class="error-message">
+                {{ errorMessages.email }}
+            </div>
+        }
+        <button class="btn btn-warning"
+                (click)="addUser()">
+            M'inscrire
+        </button>
+    </form>
+    @if(errorMessages.general) {
+        <div class="error-message">
+            {{ errorMessages.general }}
+        </div>
+    }
+    <div class="redirection">
+        Déjà membre ?
+        <div class="redirection-text"
+             (click)="goToLogin()">
+            Connectez-vous
+        </div>
+    </div>
+</div>

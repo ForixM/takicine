@@ -1,0 +1,10 @@
+<div class="card shadow m-4" style="width: 18rem; min-height: 55rem">
+  @if(movie.image) {
+    <img src="http://{{hostname}}:8080/movies/{{movie.id}}/image" class="card-img-top" alt="">
+  }
+  <div class="card-body">
+    <h5 class="card-title">{{movie.title}}</h5>
+    <p class="card-text">{{movie.synopsis}}</p>
+      <i class="bi bi-star-fill"></i> <label class="p-2 note">{{movie.rate}}/5 | {{movie.director}}</label>
+  </div>
+</div>

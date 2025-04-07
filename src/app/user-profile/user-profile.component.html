@@ -1,0 +1,18 @@
+<div class="container"  *ngIf="user$ | async as user">
+    <h3>Mon profil</h3>
+    <div class="buttons">
+        <button class="new_review">Nouvel avis</button>
+        <button class="modify_review">Modifier mes avis</button>
+        <button class="modify_infos">Modifier mes infos</button>
+        <button class="logout" (click)="logout()">Se déconnecter</button>
+    </div>
+    <h5>Mes infos</h5>
+    <ul>
+        <li>Nom: <span>{{user.lastName}}</span></li>
+        <li>Prénom: <span>{{user.firstName}}</span></li>
+        <li>Email: <span>{{user.email}}</span></li>
+        <li>Age: <span>{{user.age}}</span></li>
+        <li>Points de fidélité: <span>{{user.points}}</span></li>
+    </ul>
+</div>
+

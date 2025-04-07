@@ -1,0 +1,28 @@
+<div class="form-container" xmlns:date="http://www.w3.org/1999/xhtml">
+    <form #loginForm="ngForm" class="d-flex flex-column w-50">
+        <h2>
+            Connecte-toi !
+        </h2>
+        <h5>
+            En 1 clic
+        </h5>
+        <label for="email">Email</label>
+        <input  type="text"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                [(ngModel)]="email"
+        />
+        <button class="btn btn-warning"
+                (click)="login()">
+            Se connecter
+        </button>
+    </form>
+    <div class="redirection">
+        Pas de compte ?
+        <div class="redirection-text"
+             (click)="goToSignUp()">
+            Inscris toi !
+        </div>
+    </div>
+</div>

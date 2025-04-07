@@ -1,0 +1,6 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  background-image: url("../../images/background.png");
+}

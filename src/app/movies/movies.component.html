@@ -1,0 +1,34 @@
+<div class="header">
+  <h3>Les films</h3>
+  <button [routerLink]="['/add-movie']">Nouveau film</button>
+    <button routerLink="/admin">Retour</button>
+</div>
+<table>
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Titre</th>
+    <th scope="col">Date</th>
+    <th scope="col">Réalisateur</th>
+    <th scope="col">Note</th>
+    <th scope="col">Synopsis</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  @for (movie of movies$ | async; track movie.id) {
+    <tr>
+      <td>{{ movie.id }}</td>
+      <td>{{ movie.title }}</td>
+      <td>{{ movie.releaseDate | date:'dd/MM/yyyy' }}</td>
+      <td>{{ movie.director }}</td>
+      <td>{{ movie.rate}}</td>
+      <td>{{ movie.synopsis }}</td>
+      <td>
+        <div class="btn-container">
+          <button type="button" class="btn btn-danger deleteButton" (click)="deleteMovie(movie.id)"><i class="bi bi-trash"></i></button>
+          <button type="button" class="btn btn-primary editButton" [routerLink]="['/add-movie', movie.id]"><i class="bi bi-pencil"></i></button>
+          <button type="button" class="btn btn-image addButton" (click)="addImage(movie.id)"><i class="bi bi-camera"></i></button>
+        </div>
+      </td>
+    </tr>}
+</table>
